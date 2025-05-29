@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIPVIBE - Connexion</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    header {
+      background-color: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: gold;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    .section {
+      padding: 2rem;
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: gold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    input {
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: gold;
+      color: black;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      color: #888;
+    }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">VIPVIBE</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="artistes.html">Artistes</a>
+      <a href="evenements.html">Événements</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="connexion.html">Connexion</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>Connexion à VIPVIBE</h2>
+    <form>
+      <input type="email" placeholder="Adresse email" required />
+      <input type="password" placeholder="Mot de passe" required />
+      <button type="submit">Se connecter</button>
+    </form>
+  </section>
+
+  <footer>© 2025 VIPVIBE</footer>
+</body>
+</html>

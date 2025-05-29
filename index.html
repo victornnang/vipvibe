@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIPVIBE | Accueil</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+    header {
+      background: #111;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { color: #fcd535; margin: 0; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover { color: #fcd535; }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(to right, #111, #1a1a1a);
+    }
+    .hero h2 { font-size: 32px; color: #fcd535; }
+    .hero p { font-size: 18px; max-width: 600px; margin: 0 auto 30px; }
+    .btn { background: #fcd535; color: #111; padding: 12px 25px; border: none; border-radius: 8px; margin: 10px; cursor: pointer; font-size: 16px; }
+    .btn:hover { background: #fff; color: #000; }
+    footer { background: #111; text-align: center; padding: 20px; font-size: 14px; color: #777; margin-top: 60px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VIPVIBE</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="artistes.html">Artistes</a>
+      <a href="evenements.html">Événements</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="connexion.html">Connexion</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>L’univers festif de l’élite artistique</h2>
+    <p>Découvrez les artistes en vue, participez à des événements exclusifs, et entrez dans l’univers VIPVIBE.</p>
+    <div>
+      <button class="btn" onclick="location.href='artistes.html'">Voir les artistes</button>
+      <button class="btn" onclick="location.href='evenements.html'">Voir les événements</button>
+      <button class="btn" onclick="location.href='inscription.html'">Rejoindre VIPVIBE</button>
+    </div>
+  </section>
+  <footer>© 2025 VIPVIBE</footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIPVIBE - Événements</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+    header {
+      background-color: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      color: gold;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: gold;
+    }
+    .section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .section h2 {
+      color: gold;
+      margin-bottom: 1rem;
+    }
+
+    .top-action-bar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 2rem 1rem 2rem;
+    }
+    .btn-upload {
+      background-color: gold;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn-upload:hover {
+      background-color: #ffcc00;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .event-card {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .event-card:hover {
+      transform: scale(1.05);
+    }
+
+    .event-photo {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .event-info {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .event-info h3 {
+      color: gold;
+    }
+
+    .btn {
+      background-color: gold;
+      color: #000;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+      margin-right: 8px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #ffcc00;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">VIPVIBE</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="artistes.html">Artistes</a>
+      <a href="evenements.html">Événements</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="connexion.html">Connexion</a>
+    </nav>
+  </header>
+  <div class="top-action-bar">
+    <a href="#" class="btn-upload">📤 Mise en ligne d’un événement</a>
+  </div>
+
+  <section class="section">
+    <h2>Événements à venir</h2>
+
+    <div class="event-grid">
+      <div class="event-card">
+        <img src="https://images.unsplash.com/photo-1603575448360-780b9e64849c" class="event-photo" alt="Soirée 1">
+        <div class="event-info">
+          <h3>VIBE NIGHT PARTY</h3>
+          <p><strong>Artiste :</strong> BOBO LUFIN</p>
+          <p><strong>Date :</strong> 15 juin 2025</p>
+          <p><strong>Lieu :</strong> Libreville - VIP Club</p>
+          <a class="btn" href="#">Voir détails</a>
+          <a class="btn" href="confirmation.html">Participer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 VIPVIBE</footer>
+</body>
+</html>

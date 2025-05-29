@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIPVIBE - Profil Artiste</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #111; color: white; }
+    header { background-color: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: gold; font-size: 24px; font-weight: bold; }
+    nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: gold; }
+    .section { padding: 2rem; max-width: 800px; margin: auto; }
+    .section h2 { color: gold; margin-bottom: 1rem; text-align: center; }
+    .profile-card {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .profile-photo {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid gold;
+    }
+    .profile-info {
+      flex: 1;
+      min-width: 250px;
+    }
+    .profile-info h3 {
+      margin-top: 0;
+      color: gold;
+      font-size: 28px;
+    }
+    .profile-info p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: gold;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .back-link:hover {
+      background-color: #b38f00;
+    }
+    footer { background-color: #000; text-align: center; padding: 1rem; color: #888; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">VIPVIBE</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="artistes.html">Artistes</a>
+      <a href="evenements.html">Événements</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="connexion.html">Connexion</a>
+    </nav>
+  </header>
+  <section class="section">
+    <h2>Profil Artiste</h2>
+    <div class="profile-card">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91" alt="Photo de l'artiste" class="profile-photo" />
+      <div class="profile-info">
+        <h3>BOBO LUFIN</h3>
+        <p><strong>Genre :</strong> Musique urbaine</p>
+        <p><strong>Biographie :</strong> BOBO LUFIN est un artiste renommé dans la scène urbaine gabonaise. Avec plusieurs albums à son actif, il combine rythmes traditionnels et modernité pour offrir une expérience musicale unique.</p>
+        <p><strong>Dernier album :</strong> "Vibe Revolution" (2024)</p>
+        <p><strong>Prochains événements :</strong> VIBE NIGHT PARTY, 15 juin 2025, VIP Club Libreville</p>
+      </div>
+    </div>
+    <a href="artistes.html" class="back-link">← Retour aux artistes</a>
+  </section>
+  <footer>© 2025 VIPVIBE</footer>
+</body>
+</html>

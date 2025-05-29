@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Détails Événement - VIPVIBE</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #111; color: white; }
+    header { background-color: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: gold; font-size: 24px; font-weight: bold; }
+    nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: gold; }
+    .section { padding: 2rem; text-align: center; }
+    .section h2 { color: gold; }
+    .event-detail {
+      max-width: 700px;
+      margin: auto;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: left;
+    }
+    .event-detail img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .event-detail h3 { color: gold; margin-top: 0.5rem; }
+    .btn-participer {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: gold;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .form-participation {
+      background-color: #333;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+    }
+    .form-participation input {
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #555;
+      color: white;
+    }
+    .form-participation button {
+      background-color: gold;
+      color: black;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .form-participation button:hover {
+      background-color: #ffd700;
+    }
+    .participants-list {
+      margin-top: 2rem;
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .participants-list h4 { color: gold; }
+    .footer {
+      background-color: #000;
+      text-align: center;
+      padding: 1rem;
+      color: #888;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">VIPVIBE</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="artistes.html">Artistes</a>
+      <a href="evenements.html">Événements</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="connexion.html">Connexion</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>Détails de l'Événement</h2>
+    <div class="event-detail" id="event-detail">
+      <!-- Détails chargés par JS -->
+    </div>
+    <a href="#" class="btn-participer" id="participerBtn">Participer à l’événement</a>
+
+ <!-- Formulaire d'inscription -->
+ <div class="form-participation" id="form-participation" style="display: none;">
+    <h3>Inscrivez-vous pour participer à l'événement :</h3>
+    <input type="text" id="participant-name" placeholder="Votre nom" required/>
+    <input type="email" id="participant-email" placeholder="Votre email" required/>
+    <button id="submit-participant">S'inscrire</button>
+  </div>
+
+  <!-- Liste des participants -->
+  <div class="participants-list" id="participants-list" style="display: none;">
+    <h4>Participants :</h4>
+    <ul id="participant-list">
+      <!-- Liste dynamique des participants -->
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">© 2025 VIPVIBE</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get('title');
+  const artiste = params.get('artiste');
+  const date = params.get('date');
+  const lieu = params.get('lieu');
+  const image = params.get('image');
+
+  const detailContainer = document.getElementById('event-detail');
+    detailContainer.innerHTML = `
+      <img src="${image}" alt="${title}" />
+      <h3>${title}</h3>
+      <p><strong>Artiste :</strong> ${artiste}</p>
+      <p><strong>Date :</strong> ${date}</p>
+      <p><strong>Lieu :</strong> ${lieu}</p>
+    `;
+
+    const participants = [];
+
+    // Afficher ou cacher le formulaire
+    document.getElementById('participerBtn').addEventListener('click', function() {
+      document.getElementById('form-participation').style.display = 'block';
+      document.getElementById('participants-list').style.display = 'block';
+    });
+
+    // Soumettre un participant
+    document.getElementById('submit-participant').addEventListener('click', function() {
+      const name = document.getElementById('participant-name').value;
+      const email = document.getElementById('participant-email').value;
+
+      if (name && email) {
+        participants.push({ name, email });
+        updateParticipants();
+        alert('Vous êtes maintenant inscrit à l\'événement!');
+      } else {
+        alert('Veuillez remplir tous les champs.');
+      }
+    });
+
+    // Mettre à jour la liste des participants
+    function updateParticipants() {
+      const participantList = document.getElementById('participant-list');
+      participantList.innerHTML = '';
+      participants.forEach(participant => {
+        const li = document.createElement('li');
+        li.textContent = `${participant.name} - ${participant.email}`;
+        participantList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
