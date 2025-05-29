@@ -2,57 +2,119 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inscription VIPVIBE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIPVIBE - Inscription</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    header {
+      background-color: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: gold;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    .section {
+      padding: 2rem;
       max-width: 400px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #f5f5f5;
-      border-radius: 8px;
-    }
-    h2 {
+      margin: auto;
       text-align: center;
-      color: #222;
     }
+
+    h2 {
+      color: gold;
+    }
+
     form {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
     input {
-      padding: 10px;
-      margin: 10px 0;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px;
-      font-size: 1rem;
-      background-color: #007bff;
-      color: white;
+      padding: 0.8rem;
+      border-radius: 5px;
       border: none;
-      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: gold;
+      color: black;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
     }
+
     button:hover {
-      background-color: #0056b3;
+      background-color: white;
+      color: black;
+    }
+
+    #message {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h2>Inscription VIPVIBE</h2>
-  <form id="signup-form" onsubmit="signup(event)">
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Mot de passe (min 6 caractères)" required minlength="6" />
-    <button type="submit">S’inscrire</button>
-  </form>
+  <header>
+    <div class="logo">VIPVIBE</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="artistes.html">Artistes</a>
+      <a href="evenements.html">Événements</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="connexion.html">Connexion</a>
+    </nav>
+  </header>
 
+  <section class="section">
+    <h2>Inscription à VIPVIBE</h2>
+    <form id="registerForm">
+      <input type="email" id="email" placeholder="Adresse email" required />
+      <input type="password" id="password" placeholder="Mot de passe (6 caractères min)" required />
+      <button type="submit">S'inscrire</button>
+      <p id="message"></p>
+    </form>
+  </section>
+
+  <footer>© 2025 VIPVIBE</footer>
+
+  <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 
     const firebaseConfig = {
@@ -64,25 +126,31 @@
       appId: "1:421225427420:web:f26f92f4de96a07dc25f19",
       measurementId: "G-1S01W5H0PG"
     };
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth();
 
-    window.signup = function(event) {
-      event.preventDefault();
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const registerForm = document.getElementById("registerForm");
+    const message = document.getElementById("message");
+
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          alert("Inscription réussie !");
-          document.getElementById("signup-form").reset();
+          message.style.color = "lightgreen";
+          message.textContent = "Inscription réussie ! Redirection...";
+          setTimeout(() => {
+            window.location.href = "connexion.html"; // redirection vers la connexion
+          }, 2000);
         })
         .catch((error) => {
-          alert("Erreur : " + error.message);
+          message.style.color = "red";
+          message.textContent = "Erreur : " + error.message;
         });
-    }
+    });
   </script>
-
 </body>
 </html>
